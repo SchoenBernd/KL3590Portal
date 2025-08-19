@@ -1,0 +1,6 @@
+// Bildvorlage BV015  "\x1bRB015" aktualisiert
+ESC,RB015
+ESC,=0191253,5mm
+ESC,=0191822,0mm
+ESC,=2201405,0mm
+

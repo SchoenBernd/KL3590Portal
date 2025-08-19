@@ -1,0 +1,9 @@
+//--------------------------------------------------
+// MAP-DEFINITION-FILE
+//
+// bs3hitex.mdf is related to absolute file: bs3hitex
+//
+//--------------------------------------------------
+
+MAP AT 0x00010000 LEN 0x00001000
+MAP AT 0x00100000 LEN 0x00003000

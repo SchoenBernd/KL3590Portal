@@ -1,0 +1,6 @@
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+d:\wh\klassen\portal\code\nmtrbpo.c:
+Error d:\wh\klassen\portal\code\nmtrbpo.c 815: Undefined symbol 'verzsmy_schwer' in function KlasseNmTreiber::naetabausw(unsigned char)
+*** 1 errors in Compile ***
+
+        Available memory 3650476

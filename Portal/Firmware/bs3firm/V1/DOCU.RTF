@@ -1,0 +1,3091 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\fnil\fcharset2 Symbol;}{\f2\fswiss\fprq2 System;}{\f3\fnil Times New Roman;}{\f4\fswiss\fprq2 Arial;}}
+{\colortbl\red0\green0\blue0;\red0\green0\blue128;}
+\deflang1031\pard\plain\f4\fs28\cf0 Project Documentation
+\par \plain\f4\fs22\cf0
+\par \plain\f4\fs22\cf0 Project: \tab\tab\b Bs3
+\par 
+\par \plain\f4\fs22\cf0 Controller: \tab\tab\b C167CR-L
+\par \plain\f4\fs22\cf0 Compiler: \tab\tab\b Keil C166 V3.00
+\par \plain\f4\fs22\cf0 Memory Model: \tab\b MEDIUM
+\par 
+\par \plain\f4\fs22\cf0 Codegenerator: \tab\b DAvE 1-0-0
+\par 
+\par \plain\f4\fs22\cf0 Date: \tab\tab\tab\b 18.09.98 10:01:42
+\par 
+\par \plain\f4\fs22\cf0 Original startup file:
+\plain\f4\fs20\cf0\b
+\par \tab\tab\tab Start167.a66
+\par 
+\par \plain\f4\fs22\cf0 Modified startup file:
+\plain\f4\fs20\cf0\b
+\par \tab\tab\tab Start.asm
+\par 
+\par \plain\f4\fs22\cf0 Generated Files:
+\plain\f4\fs20\cf0\b
+\par \tab\tab\tab MAIN.C
+\par \tab\tab\tab MAIN.H
+\par \tab\tab\tab CAN.C
+\par \tab\tab\tab CAN.H
+\par \tab\tab\tab CC1.C
+\par \tab\tab\tab CC1.H
+\par \tab\tab\tab CC2.C
+\par \tab\tab\tab CC2.H
+\par \tab\tab\tab PWM.C
+\par \tab\tab\tab PWM.H
+\par \tab\tab\tab ASC.C
+\par \tab\tab\tab ASC.H
+\par \tab\tab\tab GT1.C
+\par \tab\tab\tab GT1.H
+\par \tab\tab\tab GT2.C
+\par \tab\tab\tab GT2.H
+\par \tab\tab\tab IO.C
+\par \tab\tab\tab IO.H
+\par \tab\tab\tab INT.C
+\par \tab\tab\tab INT.H
+\par 
+\par 
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Main
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void Project_Init(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the microcontroller.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void main(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the main function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab --- initialization of the SYSCON Register ---\par 
+\tab the following initialization is made in the Start.asm\par 
+\tab - the internal ROM area is mapped to segment 0\par 
+\tab - the segmentation is enabled (CSP is saved/restored during interrupt entry/exit)\par 
+\tab - the internal ROM is disabled: accesses to the ROM area use the external bus\par 
+\tab - the pin #BHE (byte high enable) is enabled\par 
+\tab - the system clock output is enabled\par 
+\tab - the pins #WR and #BHE retain their normal functions\par 
+\tab - the on-chip X-Peripherals are enabled and can be accessed\par 
+\tab - accesses to the XBUS peripherals are done internally\par 
+\tab - external accesses to the XBUS peripherals are disabled\par 
+\par 
+\tab --- initialization of the BUSCON 0-4 and ADRRSEL Registers 1-4 ---\par 
+\tab for the Keil Compiler the initialization is made in the Start.asm\par 
+\par 
+\tab ---------- external bus 0 is enabled ----------\par 
+\tab - 8-bit demultiplexed bus\par 
+\tab - memory cycle time control: asynchronous READY signal, 1  waitstates\par 
+\tab - read/write delay control: activate signal with falling edge of ALE\par 
+\tab - signal configuration: enable READY signal\par 
+\tab - chip select mode: address chip select\par 
+\tab - memory tristate control: no waitstate\par 
+\tab - ALE lengthening control: normal ALE signal\par 
+\par 
+\tab ---------- external bus 1 is enabled ----------\par 
+\tab - 16-bit demultiplexed bus\par 
+\tab - memory cycle time control: 0 waitstates\par 
+\tab - read/write delay control: activate signal with falling edge of ALE\par 
+\tab - signal configuration: disable READY signal\par 
+\tab - chip select mode: address chip select\par 
+\tab - memory tristate control: no waitstate\par 
+\tab - ALE lengthening control: normal ALE signal\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul CAN
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the CAN component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the CAN
+
+\par \tab \tab interrupts are to be released, and the priority of the
+
+\par \tab \tab released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vGetMsgObj(ubyte ObjNr, TCAN_Obj *pstObj)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function fills the forwarded SW message object with the
+
+\par \tab \tab content of the chosen HW message object.
+
+\par \tab \tab The structure of the SW message object is defined in the
+
+\par \tab \tab header file CAN.H (see TCAN_Obj).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object to be read (1-15)\par 
+
+\tab \tab Pointer on a message object to be filled by this function.\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab bit CAN_bRequestMsgObj(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a TRANSMIT OBJECT is to be reconfigured it must first be
+
+\par \tab \tab accessed. The access to the transmit object is exclusive.
+
+\par \tab \tab This function checks whether the choosen message object is
+
+\par \tab \tab still executing a transmit request, or if the object can
+
+\par \tab \tab be accessed exclusively.
+
+\par \tab \tab After the message object is reserved, it can be reconfigured
+
+\par \tab \tab by using the function CAN_vConfigMsgObj or CAN_vLoadData.
+
+\par \tab \tab Both functions enable access to the object for the CAN
+
+\par \tab \tab controller.
+
+\par \tab \tab By calling the function CAN_vTransmit transfering of data
+
+\par \tab \tab is started.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 0 message object is busy (a transfer is actice), else 1\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object (1-14)\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab bit CAN_bNewData(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function checks whether the selected RECEIVE OBJECT has
+
+\par \tab \tab received a new message. If so the function returns the
+
+\par \tab \tab value "1".
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object has received a new message, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object (1-15)\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vTransmit(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function triggers the CAN controller to send the
+
+\par \tab \tab selected message.
+
+\par \tab \tab If the selected message object is a TRANSMIT OBJECT then
+
+\par \tab \tab this function triggers the sending of a data frame.
+
+\par \tab \tab If however the selected message object is a RECEIVE OBJECT
+
+\par \tab \tab this function triggers the sending of a remote frame.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object to be sent (1-14)\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vConfigMsgObj(ubyte ObjNr, TCAN_Obj *pstObj)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function sets up the message objects. This includes
+
+\par \tab \tab the 8 data bytes, the identifier (11- or 29-bit), the data
+
+\par \tab \tab number (0-7 bytes) and the XTD-bit.
+
+\par \tab \tab The message is not sent; for this the function
+
+\par \tab \tab CAN_vTransmit must be called.
+
+\par \tab \tab The structure of the SW message object is defined in the
+
+\par \tab \tab header file CAN.H (see TCAN_Obj).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object to be configured (1-15)\par 
+
+\tab \tab Pointer on a message object\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vLoadData(ubyte ObjNr, ubyte *pubData)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a harware TRANSMIT OBJECT has to be loaded with data
+
+\par \tab \tab but not with a new identifier, this function may be used
+
+\par \tab \tab instead of the function CAN_vConfigMsgObj.
+
+\par \tab \tab The message object should be accessed by calling the function
+
+\par \tab \tab CAN_bRequestMsgObj before calling this function. This
+
+\par \tab \tab prevents the CAN controller from working with invalid data.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object to be configured (1-15)\par 
+
+\tab \tab Pointer on a data buffer\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab bit CAN_bMsgLost(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab If a RECEIVE OBJECT receives new data before the old object
+
+\par \tab \tab has been read, the old object is lost. The CAN controller
+
+\par \tab \tab indicates this by setting the message lost bit (MSGLST).
+
+\par \tab \tab This function returns the status of this bit.
+
+\par \tab \tab Note:
+
+\par \tab \tab This function resets the message lost bit (MSGLST).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object has lost a message, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object (1-15)\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab bit CAN_bDelMsgObj(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function marks the selected message object as not valid.
+
+\par \tab \tab This means that this object cannot be sent or received.
+
+\par \tab \tab If the selected object is busy (meaning the object is
+
+\par \tab \tab transmitting a message or has received a new message) this
+
+\par \tab \tab function returns the value "0" and the object is not deleted.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 1 the message object was deleted, else 0\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object (1-15)\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CAN_vReleaseObj(ubyte ObjNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function resets the NEWDAT flag of the selected RECEIVE
+
+\par \tab \tab OBJECT, so that the CAN controller have access to it.
+
+\par \tab \tab This function must be called if the function CAN_bNewData
+
+\par \tab \tab detects, that new data are present in the message object and
+
+\par \tab \tab the actual data have been read by calling the function
+
+\par \tab \tab CAN_vGetMsgObj.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Number of the message object (1-15)\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab baudrate =  370,370 KBaud\par 
+\tab there are 5 time quanta before sample point\par 
+\tab there are 3 time quanta after sample point\par 
+\tab the (re)synchronization jump width is 2 time quanta\par 
+\par 
+\tab Message object 1 is valid\par 
+\par 
+\tab message direction is transmit\par 
+\tab standard 11-bit identifier\par 
+\tab 2 valid data bytes\par 
+\par 
+\tab Message object 2 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 3 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 4 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 5 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 6 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 7 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 8 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 9 is valid\par 
+\par 
+\tab message direction is receive\par 
+\tab standard 11-bit identifier\par 
+\par 
+\tab Message object 10 is valid\par 
+\par 
+\tab message direction is transmit\par 
+\tab standard 11-bit identifier\par 
+\tab 6 valid data bytes\par 
+\par 
+\tab message object 11 is not valid\par 
+\par 
+\tab message object 12 is not valid\par 
+\par 
+\tab message object 13 is not valid\par 
+\par 
+\tab message object 14 is not valid\par 
+\par 
+\tab message object 15 is not valid\par 
+\par 
+\tab ------------ CAN Control/Status Register --------------\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul CC1
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected CAPCOM timer.
+
+\par \tab \tab The timer continues counting from where it stopped.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected CAPCOM timer.
+
+\par \tab \tab The content of the timer register remains unchanged.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected CAPCOM timer and
+
+\par \tab \tab sets the timer register to 0.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the content of the CAPCOM timer. The
+
+\par \tab \tab timer is not stopped. CPU access to the timer register
+
+\par \tab \tab has a higher priority than a timer increment or a reload.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the timer register\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vLoadTmr(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the timer register of the selected CAPCOM
+
+\par \tab \tab timer with the requested value. The timer need not be be
+
+\par \tab \tab stopped for this happen as a CPU access to the timer register
+
+\par \tab \tab has a higher priority than a timer increment or a reload.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\tab \tab 16-bit Value with which the CAPCOM timer is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vSetReload(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the reload register of the selected CAPCOM
+
+\par \tab \tab timer.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_0
+
+\par \tab \tab TIMER_1
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\tab \tab 16-bit Value with which the reload register is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_vSetCCxReg(RegName,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected capture/compare register
+
+\par \tab \tab with the parameter Value.
+
+\par \tab \tab The following definitions are available for RegName
+
+\par \tab \tab (only for enabled CAPCOM channels):
+
+\par \tab \tab CC_0 - CC_15 (see @Defines in header file)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM channel to be used\par 
+
+\tab \tab 16-bit Value with which the CCx register is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC1_uwGetCCxReg(RegName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the content of the selected capture/compare
+
+\par \tab \tab register
+
+\par \tab \tab The following definitions are available for RegName
+
+\par \tab \tab (only for enabled CAPCOM channels):
+
+\par \tab \tab CC_0 - CC_15 (see @Defines in header file)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the CCx register.\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM channel to be used\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC1_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the CAPCOM 1 component. It effects
+
+\par \tab \tab all necessary configurations of the SFR, depending on the
+
+\par \tab \tab selected operating mode. The configuration determines
+
+\par \tab \tab whether the CAPCOM interrupts are to be released, and
+
+\par \tab \tab the priority of the released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC1_viIsrTmr0(void) interrupt T0INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the CAPCOM timer 0.
+
+\par \tab \tab It is called when overflow of the timer 0 register occurs.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC1_viIsrTmr1(void) interrupt T1INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the CAPCOM timer 1.
+
+\par \tab \tab It is called when overflow of the timer 1 register occurs.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ---- Timer 0 Configuration -------------\par 
+\tab timer 0 works in counter mode, counted by:\par 
+\tab positive transition (rising edge) on pin T0IN\par 
+\tab timer 0 run bit is reset\par 
+\par 
+\tab ---- Timer 1 Configuration -------------\par 
+\tab timer 1 works in timer mode\par 
+\tab prescaler factor is 8\par 
+\tab timer 1 run bit is reset\par 
+\par 
+\tab enable timer 0 interrupt\par 
+\tab timer 0 interrupt priority level(ILVL) = 14\par 
+\tab timer 0 interrupt group level (GLVL) = 3\par 
+\par 
+\tab use PEC channel 3 for timer 0 interrupt\par 
+\tab - normal interrupt\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab enable timer 1 interrupt\par 
+\tab timer 1 interrupt priority level(ILVL) = 14\par 
+\tab timer 1 interrupt group level (GLVL) = 1\par 
+\par 
+\tab use PEC channel 1 for timer 1 interrupt\par 
+\tab - normal interrupt\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab reset P3.0 direction control (T0IN input)\par 
+\par 
+\tab P2.0 is used as output for CAPCOM channel 0\par 
+\tab P2.1 is used as output for CAPCOM channel 1\par 
+\par 
+\tab ---- Capture Compare Channel 0 -------------\par 
+\tab compare mode 3:  set output pin CC0IO on each match\par 
+\tab CC0 allocated to timer T0\par 
+\par 
+\tab ---- Capture Compare Channel 1 -------------\par 
+\tab compare mode 3:  set output pin CC1IO on each match\par 
+\tab CC1 allocated to timer T1\par 
+\par 
+\tab ---- Capture Compare Channel 2 -------------\par 
+\tab disable capture compare channel 2\par 
+\par 
+\tab ---- Capture Compare Channel 3 -------------\par 
+\tab disable capture compare channel 3\par 
+\par 
+\tab ---- Capture Compare Channel 4 -------------\par 
+\tab disable capture compare channel 4\par 
+\par 
+\tab ---- Capture Compare Channel 5 -------------\par 
+\tab disable capture compare channel 5\par 
+\par 
+\tab ---- Capture Compare Channel 6 -------------\par 
+\tab disable capture compare channel 6\par 
+\par 
+\tab ---- Capture Compare Channel 7 -------------\par 
+\tab disable capture compare channel 7\par 
+\par 
+\tab ---- Capture Compare Channel 8 -------------\par 
+\tab disable capture compare channel 8\par 
+\par 
+\tab ---- Capture Compare Channel 9 -------------\par 
+\tab disable capture compare channel 9\par 
+\par 
+\tab ---- Capture Compare Channel 10 -------------\par 
+\tab disable capture compare channel 10\par 
+\par 
+\tab ---- Capture Compare Channel 11 -------------\par 
+\tab disable capture compare channel 11\par 
+\tab enable CC8 interrupt\par 
+\tab CC8 interrupt priority level(ILVL) = 15\par 
+\tab CC8 interrupt group level (GLVL) = 2\par 
+\par 
+\tab use PEC channel 6 for CC8 interrupt\par 
+\tab - count = 1\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab User defined destination pointer is selected for PECC Channel 6\par 
+\par 
+\tab enable CC9 interrupt\par 
+\tab CC9 interrupt priority level(ILVL) = 15\par 
+\tab CC9 interrupt group level (GLVL) = 3\par 
+\par 
+\tab use PEC channel 7 for CC9 interrupt\par 
+\tab - count = 1\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab User defined source pointer is selected for PECC Channel 7\par 
+\par 
+\tab enable CC10 interrupt\par 
+\tab CC10 interrupt priority level(ILVL) = 11\par 
+\tab CC10 interrupt group level (GLVL) = 3\par 
+\par 
+\tab ---- Capture Compare Channel 12 -------------\par 
+\tab disable capture compare channel 12\par 
+\par 
+\tab ---- Capture Compare Channel 13 -------------\par 
+\tab disable capture compare channel 13\par 
+\par 
+\tab ---- Capture Compare Channel 14 -------------\par 
+\tab disable capture compare channel 14\par 
+\par 
+\tab ---- Capture Compare Channel 15 -------------\par 
+\tab disable capture compare channel 15\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul CC2
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected CAPCOM timer.
+
+\par \tab \tab The timer continues counting from where it stopped.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected CAPCOM timer.
+
+\par \tab \tab The content of the timer register remains unchanged.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected CAPCOM timer and
+
+\par \tab \tab sets the timer register to 0.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the content of the CAPCOM timer. The
+
+\par \tab \tab timer is not stopped. CPU access to the timer register
+
+\par \tab \tab has a higher priority than a timer increment or a reload.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the timer register\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vLoadTmr(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the timer register of the selected CAPCOM
+
+\par \tab \tab timer with the requested value. The timer need not be
+
+\par \tab \tab stopped for this to happen as a CPU access to the timer register
+
+\par \tab \tab has a higher priority than a timer increment or a reload.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\tab \tab 16-bit Value with which the CAPCOM timer is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vSetReload(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the reload register of the selected CAPCOM
+
+\par \tab \tab timer.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab TIMER_7
+
+\par \tab \tab TIMER_8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM timer to be used\par 
+
+\tab \tab 16-bit Value with which the reload register is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_vSetCCxReg(RegName,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected capture/compare register
+
+\par \tab \tab with the parameter Value.
+
+\par \tab \tab The following definitions are available for RegName
+
+\par \tab \tab (only for enabled CAPCOM channels):
+
+\par \tab \tab CC_16 - CC_31 (see @Defines in header file)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM channel to be used\par 
+
+\tab \tab 16-bit Value with which the CCx register is to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CC2_uwGetCCxReg(RegName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the contents of the selected capture/compare
+
+\par \tab \tab register
+
+\par \tab \tab The following definitions are available for RegName
+
+\par \tab \tab (only for enabled CAPCOM channels):
+
+\par \tab \tab CC_16 - CC_31 (see @Defines in header file)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the CCx register.\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the CAPCOM channel to be used\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC2_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the CAPCOM 2 component. It effects
+
+\par \tab \tab all necessary configurations of the SFR, depending on the
+
+\par \tab \tab selected operating mode. The configuration determines
+
+\par \tab \tab whether the CAPCOM interrupts are to be released, and
+
+\par \tab \tab the priority of the released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC2_viIsrTmr7(void) interrupt T7INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the CAPCOM timer 7.
+
+\par \tab \tab It is called when the timer 7 register overflows.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CC2_viIsrTmr8(void) interrupt T8INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the CAPCOM timer 8.
+
+\par \tab \tab It is called when the timer 8 register overflows.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ---- Timer 7 Configuration -------------\par 
+\tab timer 7 works in counter mode, counted by:\par 
+\tab positive transition (rising edge) on pin T7IN\par 
+\tab timer 7 run bit is reset\par 
+\par 
+\tab ---- Timer 8 Configuration -------------\par 
+\tab timer 8 works in timer mode\par 
+\tab prescaler factor is 8\par 
+\tab timer 8 run bit is reset\par 
+\par 
+\tab enable timer 7 interrupt\par 
+\tab timer 7 interrupt priority level(ILVL) = 14\par 
+\tab timer 7 interrupt group level (GLVL) = 2\par 
+\par 
+\tab use PEC channel 2 for timer 7 interrupt\par 
+\tab - normal interrupt\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab enable timer 8 interrupt\par 
+\tab timer 8 interrupt priority level(ILVL) = 9\par 
+\tab timer 8 interrupt group level (GLVL) = 3\par 
+\par 
+\tab reset P2.15 direction control (T7IN input)\par 
+\par 
+\tab P7.4 is used as output for CAPCOM channel 28\par 
+\par 
+\tab ---- Capture Compare Channel 16 -------------\par 
+\tab disable capture compare channel 16\par 
+\par 
+\tab ---- Capture Compare Channel 17 -------------\par 
+\tab disable capture compare channel 17\par 
+\par 
+\tab ---- Capture Compare Channel 18 -------------\par 
+\tab disable capture compare channel 18\par 
+\par 
+\tab ---- Capture Compare Channel 19 -------------\par 
+\tab disable capture compare channel 19\par 
+\par 
+\tab ---- Capture Compare Channel 20 -------------\par 
+\tab disable capture compare channel 20\par 
+\par 
+\tab ---- Capture Compare Channel 21 -------------\par 
+\tab disable capture compare channel 21\par 
+\par 
+\tab ---- Capture Compare Channel 22 -------------\par 
+\tab disable capture compare channel 22\par 
+\par 
+\tab ---- Capture Compare Channel 23 -------------\par 
+\tab disable capture compare channel 23\par 
+\par 
+\tab ---- Capture Compare Channel 24 -------------\par 
+\tab disable capture compare channel 24\par 
+\par 
+\tab ---- Capture Compare Channel 25 -------------\par 
+\tab disable capture compare channel 25\par 
+\par 
+\tab ---- Capture Compare Channel 26 -------------\par 
+\tab disable capture compare channel 26\par 
+\par 
+\tab ---- Capture Compare Channel 27 -------------\par 
+\tab disable capture compare channel 27\par 
+\par 
+\tab ---- Capture Compare Channel 28 -------------\par 
+\tab compare mode 3:  set output pin CC28IO on each match\par 
+\tab CC28 allocated to timer T7\par 
+\par 
+\tab ---- Capture Compare Channel 29 -------------\par 
+\tab disable capture compare channel 29\par 
+\par 
+\tab ---- Capture Compare Channel 30 -------------\par 
+\tab disable capture compare channel 30\par 
+\par 
+\tab ---- Capture Compare Channel 31 -------------\par 
+\tab disable capture compare channel 31\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul PWM
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab PWM_vStart(Channel)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the timer of the selected PWM channel.
+
+\par \tab \tab The timer starts with the last content.
+
+\par \tab \tab The following definitions for Channel are available:
+
+\par \tab \tab CHANNEL_0
+
+\par \tab \tab CHANNEL_1
+
+\par \tab \tab CHANNEL_2
+
+\par \tab \tab CHANNEL_3
+
+\par \tab \tab Note:
+
+\par \tab \tab To start all PWM channels simultaneously the macro is
+
+\par \tab \tab used as follows:
+
+\par \tab \tab PWM_vStart(CHANNEL_0 + CHANNEL_1..);
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the channel whose timer is to be started\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab PWM_vStop(Channel)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the timer of the selected PWM channel.
+
+\par \tab \tab The timer content is not changed.
+
+\par \tab \tab The following definitions for Channel are available:
+
+\par \tab \tab CHANNEL_0
+
+\par \tab \tab CHANNEL_1
+
+\par \tab \tab CHANNEL_2
+
+\par \tab \tab CHANNEL_3
+
+\par \tab \tab Note:
+
+\par \tab \tab To stop all PWM channels simultaneously the macro is
+
+\par \tab \tab used as follows:
+
+\par \tab \tab PWM_vStop(CHANNEL_0 + CHANNEL_1..);
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of the channel whose timer is to be stopped\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab PWM_vSetPeriod(Channel,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the given parameter into the period
+
+\par \tab \tab register PPx of the selected PWM channel. This determines
+
+\par \tab \tab the period of the PWM signal. The period shadow register
+
+\par \tab \tab (with which the hardware compares) is actualized with the
+
+\par \tab \tab new value when a new period begins, or upon a write
+
+\par \tab \tab access to PPx, while the timer is stopped.
+
+\par \tab \tab The following definitions for Channel are available:
+
+\par \tab \tab PWM_REG0
+
+\par \tab \tab PWM_REG1
+
+\par \tab \tab PWM_REG2
+
+\par \tab \tab PWM_REG3
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Channel whose period is to be changed\par 
+
+\tab \tab 16-bit Value to be loaded into the period register\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab PWM_vSetPw(Channel,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the given parameter into the pulse width
+
+\par \tab \tab register PWx of the selected PWM channel. This determines the
+
+\par \tab \tab duty cycle of the PWM signal. The pulse width shadow
+
+\par \tab \tab register (with which the hardware compares) is only
+
+\par \tab \tab actualized with the new value when a new period begins,
+
+\par \tab \tab or upon a write access to PWx, while the timer is stopped.
+
+\par \tab \tab The following definitions for Channel are available:
+
+\par \tab \tab PWM_REG0
+
+\par \tab \tab PWM_REG1
+
+\par \tab \tab PWM_REG2
+
+\par \tab \tab PWM_REG3
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Channel whose duty cycle is to be changed\par 
+
+\tab \tab 16-bit Value to be loaded into the pulse width register\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab PWM_vSetTimer(Channel,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the given parameter into the timer register
+
+\par \tab \tab PTx of the selected PWM channel. This retriggers the output
+
+\par \tab \tab signal in single shot mode.
+
+\par \tab \tab The following definitions for Channel are available:
+
+\par \tab \tab PWM_REG0
+
+\par \tab \tab PWM_REG1
+
+\par \tab \tab PWM_REG2
+
+\par \tab \tab PWM_REG3
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Channel whose timer is to be changed\par 
+
+\tab \tab 16-bit Value to be loaded into the timer register\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void PWM_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the PWM component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the PWM
+
+\par \tab \tab interrupts are to be released, and the priority of the
+
+\par \tab \tab released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void PWM_vStatus(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab All channel interrupt request flags that are not checked
+
+\par \tab \tab within the ISR, are checked in this polling function.
+
+\par \tab \tab The individual interrupt request flag of a channel is set
+
+\par \tab \tab at the beginning of a new PWM cycle. This indicates that
+
+\par \tab \tab register PPx and PWx are now ready to receive a new value.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available.
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ------------- PWM channel 0 --------------\par 
+\tab PWM channel 0 operates in mode 0 (edge aligned PWM)\par 
+\tab PWM channel 0 output signal (P7.0) enabled\par 
+\tab timer PT0 is disconnected from its input clock\par 
+\tab timer PT0 is clocked with fcpu\par 
+\tab interrupt from channel 0 is disabled\par 
+\tab the period of a PWM0 cycle is 500,000 탎\par 
+\tab the duty cycle of PWM0 is 50,00 %\par 
+\par 
+\tab ------------- PWM channel 1 --------------\par 
+\tab PWM channel 1 operates in mode 0 (edge aligned PWM)\par 
+\tab PWM channel 1 output signal (P7.1) enabled\par 
+\tab timer PT1 is disconnected from its input clock\par 
+\tab timer PT1 is clocked with fcpu\par 
+\tab interrupt from channel 1 is disabled\par 
+\tab the period of a PWM1 cycle is 500,000 탎\par 
+\tab the duty cycle of PWM1 is 50,00 %\par 
+\par 
+\tab ------------- PWM channel 2 --------------\par 
+\tab PWM channel 2 operates in mode 0 (edge aligned PWM)\par 
+\tab PWM channel 2 output signal (P7.2) enabled\par 
+\tab timer PT2 is disconnected from its input clock\par 
+\tab timer PT2 is clocked with fcpu\par 
+\tab interrupt from channel 2 is disabled\par 
+\tab the period of a PWM2 cycle is 500,000 탎\par 
+\tab the duty cycle of PWM2 is 50,00 %\par 
+\par 
+\tab ------------- PWM channel 3 --------------\par 
+\tab PWM channel 3 operates in mode 0 (edge aligned PWM)\par 
+\tab PWM channel 3 output signal (P7.3) enabled\par 
+\tab timer PT3 is disconnected from its input clock\par 
+\tab timer PT3 is clocked with fcpu / 64\par 
+\tab interrupt from channel 3 is disabled\par 
+\tab the period of a PWM3 cycle is 499,200 탎\par 
+\tab the duty cycle of PWM3 is 50,00 %\par 
+\par 
+\tab PWM channel 0 output the signal on P7.0\par 
+\tab - the signal is driven directly to P7.0\par 
+\tab PWM channel 1 output the signal on P7.1\par 
+\tab - the signal is driven directly to P7.1\par 
+\tab PWM channel 2 output the signal on P7.2\par 
+\tab - the signal is driven directly to P7.2\par 
+\tab PWM channel 3 output the signal on P7.3\par 
+\tab - the signal is driven directly to P7.3\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Asynchronous / Synchronous Serial Interface (ASC)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab ASC_vReceiverDisable()\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro disables the receive function of the ASC0
+
+\par \tab \tab channel. A data that is currently being received is
+
+\par \tab \tab received to completion, including generation of the
+
+\par \tab \tab receive interrupt request.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab ASC_vSetBaudrate(Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the reload register of the baudrate
+
+\par \tab \tab generator. The baudrate generator is loaded immediately
+
+\par \tab \tab with the new value.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab 13 bit value for the baudrate reload register\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab ASC_vStopBaudGen()\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the baudrate generator (ASC inactive).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab ASC_vStartBaudGen()\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the baudrate generator (ASC active).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the ASC component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the ASC
+
+\par \tab \tab interrupts are to be released, and the priority of the
+
+\par \tab \tab released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_vSendData(uword Data)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function writes a send data initialization word into
+
+\par \tab \tab the S0TBUF register.
+
+\par \tab \tab Note:
+
+\par \tab \tab In a multiprocessor system the master with this function
+
+\par \tab \tab has the possibility to send data to the selected slave. To
+
+\par \tab \tab achieve this, the 9th bit must set on zero.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab data to be written into the S0TBUF register\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab uword ASC_uwGetData(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function reads out the content of the S0RBUF register
+
+\par \tab \tab which contains a received data byte.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b data that has been received\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_viIsrError(void) interrupt S0EINT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the error interrupt service routine for the ASC0.
+
+\par \tab \tab It is called if during receipt of a data byte a framing,
+
+\par \tab \tab parity or overflow error occured (only if enabled).
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_viIsrRx(void) interrupt S0RINT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the receive interrupt service routine for the ASC0.
+
+\par \tab \tab It is called if a byte has been received via ASC0
+
+\par \tab \tab (S0RIR is set).
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_viIsrTxBuf(void) interrupt S0TBINT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the transmit buffer interrupt service routine for
+
+\par \tab \tab the ASC0. It is called if the content of the TX-buffer has
+
+\par \tab \tab been loaded into the TX-shift register.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab bit ASC_bTxDataReady(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function can be used for checking up the status of the
+
+\par \tab \tab ASC transmitter interrupt flags (S0TIR). This shows when
+
+\par \tab \tab the sending of a byte has terminated. By continuously
+
+\par \tab \tab polling the S0TIR bit after the function
+
+\par \tab \tab ASC_vSendData has been called, it is
+
+\par \tab \tab possible to establish when the ASC has terminated its task.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 0 if transmitter is busy, else 1\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ASC_vReceiverEnable(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function releases the receive function of the ASC0.
+
+\par \tab \tab After initialization this function does not need to be
+
+\par \tab \tab recalled.
+
+\par \tab \tab Note:
+
+\par \tab \tab The following function must be called everytime data is to
+
+\par \tab \tab be received in synchronous mode.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab 8-bit data + parity asynchronous operation\par 
+\tab even parity (parity bit set on odd number of '1's in data)\par 
+\tab one stop bit\par 
+\tab check parity error\par 
+\tab check framing error\par 
+\tab check overrun error\par 
+\tab divide clock by reload value + constant\par 
+\tab receiver enabled\par 
+\par 
+\tab baudrate =  9615,38 Baud\par 
+\par 
+\tab enable transmit buffer interrupt\par 
+\tab transmit buffer interrupt priority level(ILVL) = 10\par 
+\tab transmit buffer interrupt group level (GLVL) = 1\par 
+\par 
+\tab enable receive interrupt\par 
+\tab receive interrupt priority level(ILVL) = 10\par 
+\tab receive interrupt group level (GLVL) = 2\par 
+\par 
+\tab enable error interrupt\par 
+\tab error interrupt priority level(ILVL) = 10\par 
+\tab error interrupt group level (GLVL) = 3\par 
+\par 
+\tab set P3.10 direction control (TXD0 output)\par 
+\tab reset P3.11 direction control (RXD0 input)\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul General Purpose Timer Unit 1
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected GPT1 timer. The timer continues
+
+\par \tab \tab to count from where it had stopped
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be started\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT1 timer. The contents of
+
+\par \tab \tab the timer register remain unchanged.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be stopped\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT1 timer and sets the timer
+
+\par \tab \tab register to 0.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be cleared\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the contents of the selected GPT1 timer.
+
+\par \tab \tab The timer is not stopped. Access of the CPU to the
+
+\par \tab \tab registers of the timer is of higher priority than a timer
+
+\par \tab \tab increment, a reload or a capture event.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b current 16-bit value of the timer\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be readed\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vLoadTmr(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected GPT1 timer with the forwarded
+
+\par \tab \tab value. The timer is not stopped. The access of the CPU to
+
+\par \tab \tab the registers of the timers is of higher priority than a
+
+\par \tab \tab timer increment, a reload or a capture event.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be loaded\par 
+
+\tab \tab 16-bit value to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vCountUp(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to up. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function GT1_vCountUp
+
+\par \tab \tab set a  0 at TxEUD enabling counting up of timer x and a
+
+\par \tab \tab 1 at TxEUD enabling counting down of timer x.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT1_vCountDown(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to down. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function GT1_vCountDown
+
+\par \tab \tab set a 0 at TxEUD enabling counting down of timer x and
+
+\par \tab \tab a 1 at TxEUD enabling counting up of timer x.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_2
+
+\par \tab \tab TIMER_3
+
+\par \tab \tab TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be used\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT1_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the GPT1 component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the GPT1
+
+\par \tab \tab interrupts are to be released, and the priority of the
+
+\par \tab \tab released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT1_viIsrTmr3(void) interrupt T3INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT1 timer 3.
+
+\par \tab \tab It is called up in the case of over or underflow of the
+
+\par \tab \tab timer 3 register.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT1_viIsrTmr2(void) interrupt T2INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT1 timer 2.
+
+\par \tab \tab It is called up when the timer 2 register over or under-
+
+\par \tab \tab flows or if timer 3 is reloaded with the content of timer 2
+
+\par \tab \tab (external signal or T3 over/underflow) or if an external
+
+\par \tab \tab capture event arrives.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT1_viIsrTmr4(void) interrupt T4INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT1 timer 4.
+
+\par \tab \tab It is called up when the timer 4 register is over or under-
+
+\par \tab \tab flows or if timer 3 is reloaded with the content of timer 4
+
+\par \tab \tab (external signal or T3 over/underflow) or if an external
+
+\par \tab \tab capture event arrives.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ------------ Timer 3 Control Register ----------\par 
+\tab timer 3 works in counter mode\par 
+\tab positive transition (rising edge) on T3IN\par 
+\tab counter 3 run bit is reset\par 
+\tab up/down control bit is set\par 
+\tab external up/down control is disabled\par 
+\tab alternate output (toggle T3OUT) function is disabled\par 
+\par 
+\tab reset P3.6 direction control (T3IN input)\par 
+\par 
+\tab enable timer 3 interrupt\par 
+\tab timer 3 interrupt priority level(ILVL) = 12\par 
+\tab timer 3 interrupt group level (GLVL) = 2\par 
+\par 
+\tab ---------- Timer 2 Control Register ----------\par 
+\tab timer 2 works in counter mode\par 
+\tab positive transition (rising edge) on T2IN\par 
+\tab timer 2 run bit is reset\par 
+\tab up/down control bit is set\par 
+\tab external up/down control is disabled\par 
+\par 
+\tab reset P3.7 direction control (T2IN input)\par 
+\par 
+\tab enable timer 2 interrupt\par 
+\tab timer 2 interrupt priority level(ILVL) = 12\par 
+\tab timer 2 interrupt group level (GLVL) = 3\par 
+\par 
+\tab ---------- Timer 4 Control Register ----------\par 
+\tab timer 4 works in counter mode\par 
+\tab positive transition (rising edge) on T4IN\par 
+\tab timer 4 run bit is reset\par 
+\tab up/down control bit is set\par 
+\tab external up/down control is disabled\par 
+\par 
+\tab reset P3.5 direction control (T4IN input)\par 
+\par 
+\tab enable timer 4 interrupt\par 
+\tab timer 4 interrupt priority level(ILVL) = 12\par 
+\tab timer 4 interrupt group level (GLVL) = 1\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul General Purpose Timer Unit 2
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected GPT2 timer. The timer continues
+
+\par \tab \tab to count from where it has stopped.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be started\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT2 timer. The contents of
+
+\par \tab \tab the timer register remain unchanged.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be stopped\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT2 timer and sets the timer
+
+\par \tab \tab register to 0.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be cleared\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the content of the selected GPT2 timer.
+
+\par \tab \tab The timer is not stopped. Access of the CPU to the
+
+\par \tab \tab registers of the timer is of a higher priority than a timer
+
+\par \tab \tab increment, a reload or a capture event.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b current 16-bit value of timer\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be readed\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vLoadTmr(TimerNr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected GPT2 timer with the requested
+
+\par \tab \tab value. The timer is not stopped. The access of the CPU to
+
+\par \tab \tab the registers of the timers is of a higher priority than a
+
+\par \tab \tab timer increment, a reload or a capture event.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be loaded\par 
+
+\tab \tab 16-bit value to be loaded\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vCountUp(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to up. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function GT2_vCountUp
+
+\par \tab \tab set a 0 at TxEUD enabling counting up of timer x and a
+
+\par \tab \tab 1 at TxEUD enabling counting down of timer x.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vCountDown(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to down. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function GT2_vCountDown
+
+\par \tab \tab set a 0 at TxEUD enablinf counting down of timer x and
+
+\par \tab \tab a 1 at TxEUD enabling counting up of timer x.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab TIMER_5
+
+\par \tab \tab TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab the name of the timer to be used\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_uwReadCAPREL()\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the content of the CAPREL register.
+
+\par \tab \tab This can be the capture value of T5 or the reload value of
+
+\par \tab \tab T6.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b current 16-bit value of the CAPREL register\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GT2_vLoadCAPREL(Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the CAPREL register with the forwarded
+
+\par \tab \tab value.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab 16-bit value to loaded in the CAPREL register\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT2_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the GPT2 component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the GPT2
+
+\par \tab \tab interrupts are to be released, and the priority of the
+
+\par \tab \tab released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT2_viIsrCAPREL(void) interrupt CRINT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT2 capture/
+
+\par \tab \tab reload register CAPREL. The CAPREL register has been
+
+\par \tab \tab configured into capture mode and a capture event is
+
+\par \tab \tab at pin P3.2.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GT2_viIsrTmr5(void) interrupt T5INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT2 timer 5.
+
+\par \tab \tab It is called when over or underflow of the timer 5
+
+\par \tab \tab register occurs.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ---------- CAPREL ----------\par 
+\tab timer 6 reload from register CAPREL is disabled\par 
+\tab timer 5 capture into register CAPREL is enabled\par 
+\tab CAPREL input selection:\par 
+\tab - positive transition (rising edge) on CAPIN (P3.2)\par 
+\tab timer 5 is cleared on a capture\par 
+\par 
+\tab reset P3.2 direction control (CAPIN input)\par 
+\par 
+\tab enable CAPREL interrupt\par 
+\tab CAPREL interrupt priority level(ILVL) = 14\par 
+\tab CAPREL interrupt group level (GLVL) = 0\par 
+\par 
+\tab use PEC channel 0 for GPT2 CAPREL interrupt\par 
+\tab - continuous transfer\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab User defined destination pointer is selected for PECC Channel 0\par 
+\par 
+\tab ---------- Timer 6 Control Register ----------\par 
+\tab timer 6 works in counter mode\par 
+\tab positive transition (rising edge) on T6IN\par 
+\tab counter 6 run bit is reset\par 
+\tab up/down control bit is reset\par 
+\tab external up/down control is enabled\par 
+\tab alternate output function is disabled\par 
+\tab timer 6 output toggle latch is set to 0\par 
+\par 
+\tab ---------- Timer 5 Control Register ----------\par 
+\tab timer 5 works in counter mode\par 
+\tab positive transition (rising edge) on T5IN\par 
+\tab timer 5 run bit is reset\par 
+\tab up/down control bit is reset\par 
+\tab external up/down control is disabled\par 
+\par 
+\tab enable timer 5 interrupt\par 
+\tab timer 5 interrupt priority level(ILVL) = 13\par 
+\tab timer 5 interrupt group level (GLVL) = 3\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Ports
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_bReadPin(PinNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the status of the chosen portpin.
+
+\par \tab \tab Warning:
+
+\par \tab \tab All instructions that manipulate single bits or bit
+
+\par \tab \tab groups internally, use a read-modify-write sequence
+
+\par \tab \tab that accesses the whole word, which contains the
+
+\par \tab \tab specified bit(s).
+
+\par \tab \tab The read modify-write approach may be critical with
+
+\par \tab \tab hardware-effected bits. In this cases the hardware
+
+\par \tab \tab may change specific bits while the read-modify-write
+
+\par \tab \tab operation is in progress, where the writeback would
+
+\par \tab \tab overwrite the new bit value generated by the hardware.
+
+\par \tab \tab The solution is either the implemented hardware
+
+\par \tab \tab protection or realized through special programming
+
+\par \tab \tab (see "Particular Pipeline Effects" and "Protected
+
+\par \tab \tab Bits" in the User's Manual).
+
+\par \tab \tab Note:
+
+\par \tab \tab See the "Declaration of bit addressable SFRs"
+
+\par \tab \tab section in the header file for the available
+
+\par \tab \tab definitions for the parameter PinNr.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b status of the chosen portpin\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab pin to be read\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vSetPin(PinNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab The chosen portpin is set to '1'.
+
+\par \tab \tab Warning:
+
+\par \tab \tab All instructions that manipulate single bits or bit
+
+\par \tab \tab groups internally, use a read-modify-write sequence
+
+\par \tab \tab that accesses the whole word, which contains the
+
+\par \tab \tab specified bit(s).
+
+\par \tab \tab The read modify-write approach may be critical with
+
+\par \tab \tab hardware-effected bits. In this cases the hardware
+
+\par \tab \tab may change specific bits while the read-modify-write
+
+\par \tab \tab operation is in progress, where the writeback would
+
+\par \tab \tab overwrite the new bit value generated by the hardware.
+
+\par \tab \tab The solution is either the implemented hardware
+
+\par \tab \tab protection or realized through special programming
+
+\par \tab \tab (see "Particular Pipeline Effects" and "Protected
+
+\par \tab \tab Bits" in the User's Manual).
+
+\par \tab \tab Note:
+
+\par \tab \tab See the "Declaration of bit addressable SFRs"
+
+\par \tab \tab section in the header file for the available
+
+\par \tab \tab definitions for the parameter PinNr.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab pin to be set to '1'\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vResetPin(PinNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab The chosen portpin is set to '0'.
+
+\par \tab \tab Warning:
+
+\par \tab \tab All instructions that manipulate single bits or bit
+
+\par \tab \tab groups internally, use a read-modify-write sequence
+
+\par \tab \tab that accesses the whole word, which contains the
+
+\par \tab \tab specified bit(s).
+
+\par \tab \tab The read modify-write approach may be critical with
+
+\par \tab \tab hardware-effected bits. In this cases the hardware
+
+\par \tab \tab may change specific bits while the read-modify-write
+
+\par \tab \tab operation is in progress, where the writeback would
+
+\par \tab \tab overwrite the new bit value generated by the hardware.
+
+\par \tab \tab The solution is either the implemented hardware
+
+\par \tab \tab protection or realized through special programming
+
+\par \tab \tab (see "Particular Pipeline Effects" and "Protected
+
+\par \tab \tab Bits" in the User's Manual).
+
+\par \tab \tab Note:
+
+\par \tab \tab See the "Declaration of bit addressable SFRs"
+
+\par \tab \tab section in the header file for the available
+
+\par \tab \tab definitions for the parameter PinNr.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab pin to be set to '0'\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_uwReadPort(PortNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the value of the selected port. If a
+
+\par \tab \tab port has less than 16 pins, the unused bits are
+
+\par \tab \tab set to 0 in the return value
+
+\par \tab \tab The following definitions for PortNr are available:
+
+\par \tab \tab P0L,P0H,P1L,P1H,P2,P3,P4,P5,P6,P7,P8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b value of the port\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab port to be read\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vWritePort(Port,Data)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab The forwarded data is written to the selected port. If a port
+
+\par \tab \tab has less than 16 pins, the bits not used are ignored in
+
+\par \tab \tab the parameter value.
+
+\par \tab \tab The following definitions for PortNr are available:
+
+\par \tab \tab P0L,P0H,P1L,P1H,P2,P3,P4,P6,P7,P8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab port to be altered\par 
+
+\tab \tab value to be written to the chosen port\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vSetInput(Port,Mask)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro makes it possible to reconfigure the selected
+
+\par \tab \tab port. The parameter Mask determines which individual
+
+\par \tab \tab port pins are to be used as inputs. Every bit position in
+
+\par \tab \tab the parameter Mask corresponds to a port pin.
+
+\par \tab \tab Note:
+
+\par \tab \tab Instructions modifying the port direction should be
+
+\par \tab \tab followed by an instruction that does not access the same
+
+\par \tab \tab port.
+
+\par \tab \tab The following definitions for PortNr are available:
+
+\par \tab \tab P0L,P0H,P1L,P1H,P2,P3,P4,P6,P7,P8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab port to be configured\par 
+
+\tab \tab mask for port pins to be configured\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vSetOutput(Port,Mask)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro makes it possible to reconfigure the selected
+
+\par \tab \tab port. The parameter Mask determines which individual
+
+\par \tab \tab port pins are to be used as outputs. Every bit position in
+
+\par \tab \tab the parameter Mask corresponds to a port pin.
+
+\par \tab \tab Note:
+
+\par \tab \tab Instructions modifying the port direction should be
+
+\par \tab \tab followed by an instruction that does not access the same
+
+\par \tab \tab port.
+
+\par \tab \tab The following definitions for PortNr are available:
+
+\par \tab \tab P0L,P0H,P1L,P1H,P2,P3,P4,P6,P7,P8
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab port to be configured\par 
+
+\tab \tab mask for port pins to be configured\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void IO_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the IO component. It effects all
+
+\par \tab \tab necessary configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode.
+
+\par \tab \tab Note:
+
+\par \tab \tab Only those pins that are initialized are used as general IO.
+
+\par \tab \tab If the alternate function of a pin is used, this pin is
+
+\par \tab \tab initialized in the initialization function of the peripheral.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab P8.0 .. P8.7  switch on standard TTL input levels\par 
+\tab P7.0 .. P7.7  switch on standard TTL input levels\par 
+\tab P3.8 .. P3.15 switch on standard TTL input levels\par 
+\tab P3.0 .. P3.7  switch on standard TTL input levels\par 
+\tab P2.8 .. P2.15 switch on standard TTL input levels\par 
+\tab P2.0 .. P2.7  switch on standard TTL input levels\par 
+\par 
+\tab no pin of port 0 low is used as general IO\par 
+\par 
+\tab no pin of port 0 high is used as general IO\par 
+\par 
+\tab no pin of port 1 low is used as general IO\par 
+\par 
+\tab no pin of port 1 high is used as general IO\par 
+\par 
+\tab P2.2 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.3 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.4 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.5 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.6 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.7 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.11 is used as general IO\par 
+\tab -  the pin is configured as input\par 
+\tab P2.12 is used as general IO\par 
+\tab -  the pin is configured as input\par 
+\tab P2.13 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P2.14 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\par 
+\tab P3.1 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P3.3 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P3.4 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\par 
+\tab P4.4 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin status is low level\par 
+\tab P4.7 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin status is low level\par 
+\par 
+\tab P5.0 is used as general input\par 
+\tab P5.1 is used as general input\par 
+\tab P5.2 is used as general input\par 
+\tab P5.3 is used as general input\par 
+\tab P5.4 is used as general input\par 
+\tab P5.5 is used as general input\par 
+\tab P5.6 is used as general input\par 
+\tab P5.7 is used as general input\par 
+\tab P5.8 is used as general input\par 
+\tab P5.9 is used as general input\par 
+\tab P5.11 is used as general input\par 
+\tab P5.14 is used as general input\par 
+\tab P5.15 is used as general input\par 
+\par 
+\tab no pin of port 6 is used as general IO\par 
+\par 
+\tab P7.5 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P7.6 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P7.7 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\par 
+\tab P8.0 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.1 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.2 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.3 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.4 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.5 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.6 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\tab P8.7 is used as general IO\par 
+\tab -  the pin is configured as output\par 
+\tab -  the pin is configured to push/pull mode\par 
+\tab -  the pin status is low level\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Interrupt Controller
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab INT_vEnableInterrupt(IntName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro enables the selected interrupt source.
+
+\par \tab \tab Note:
+
+\par \tab \tab Enable only those interrupt sources for which a service
+
+\par \tab \tab routine is installed.
+
+\par \tab \tab Available definitions for IntName see in the header file
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of Interrupt (see @Defines in the header file)\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab INT_vDisableInterrupt(IntName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro disables the selected interrupt source.
+
+\par \tab \tab Available definitions for IntName see in the header file
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Name of Interrupt (see @Defines in the header file)\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab INT_vSetPecCount(Nr,Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the COUNT field of PECCx with the parameter
+
+\par \tab \tab value.
+
+\par \tab \tab During each PEC transfer this counter is decremented
+
+\par \tab \tab (if 0xFF > COUNT > 0). If the counter reaches 0, the normal
+
+\par \tab \tab interrupt service routine is executed, in which the PEC
+
+\par \tab \tab counter then can be reloaded with this function. If COUNT
+
+\par \tab \tab is set at 0xFF the PEC counter is switched off.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab number of PEC channel (0 to 7) whose count value is to be changed\par 
+
+\tab \tab 8-bit value for the PEC transfer counter field (0 .. 255)\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab INT_vSetPecSrcP(Nr,Address)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the source pointer for the chosen PEC
+
+\par \tab \tab channel.
+
+\par \tab \tab Note:
+
+\par \tab \tab The address of the variable must be in segment 0 (data
+
+\par \tab \tab page 0 through 3).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab number of PEC channel (0 to 7) whose source address is to be set\par 
+
+\tab \tab source address of the chosen PEC channel\par 
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab INT_vSetPecDesP(Nr,Address)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the destination pointer for the
+
+\par \tab \tab chosen PEC channel.
+
+\par \tab \tab Note:
+
+\par \tab \tab The address of the variable must be in segment 0 (data
+
+\par \tab \tab page 0 through 3).
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab number of PEC channel (0 to 7) whose source address is to be set\par 
+
+\tab \tab destination address of the chosen PEC channel\par 
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void INT_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the fast external
+
+\par \tab \tab interrupts 0 - 7. It effects all necessary
+
+\par \tab \tab configurations of the SFR, depending on the selected
+
+\par \tab \tab operating mode. The configuration determines whether the
+
+\par \tab \tab external interrupts are to be released, and the priority
+
+\par \tab \tab of the released interrupt.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void INT_viIsrEx0(void) interrupt CC8INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the external
+
+\par \tab \tab interrupt 0 (P2.8).
+
+\par \tab \tab It is called when the configured event is captured.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void INT_viIsrEx1(void) interrupt CC9INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the external
+
+\par \tab \tab interrupt 1 (P2.9).
+
+\par \tab \tab It is called when the configured event is captured.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void INT_viIsrEx2(void) interrupt CC10INT\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the external
+
+\par \tab \tab interrupt 2 (P2.10).
+
+\par \tab \tab It is called when the configured event is captured.
+
+\par \tab \tab Note:
+
+\par \tab \tab It is important that the user adds to this function with
+
+\par \tab \tab Application Specific Code. User Code sections are available
+
+\par \tab \tab in the function for this purpose.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b none\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab none\par 
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab ------- external interrupt 0 edge selection -------\par 
+\tab external interrupt 0 on positive edge (rising) at pin P2.8\par 
+\par 
+\tab ------- external interrupt 1 edge selection -------\par 
+\tab external interrupt 1 on positive edge (rising) at pin P2.9\par 
+\par 
+\tab ------- external interrupt 2 edge selection -------\par 
+\tab external interrupt 2 on positive edge (rising) at pin P2.10\par 
+\par 
+\tab enable external 0 interrupt\par 
+\tab external 0 interrupt priority level(ILVL) = 15\par 
+\tab external 0 interrupt group level (GLVL) = 2\par 
+\par 
+\tab use PEC channel 6 for external 0 interrupt\par 
+\tab - count = 1\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab User defined destination pointer is selected for PECC Channel 6\par 
+\par 
+\tab enable external 1 interrupt\par 
+\tab external 1 interrupt priority level(ILVL) = 15\par 
+\tab external 1 interrupt group level (GLVL) = 3\par 
+\par 
+\tab use PEC channel 7 for external 1 interrupt\par 
+\tab - count = 1\par 
+\tab - word transfer\par 
+\tab - pointers are not modified\par 
+\par 
+\tab User defined source pointer is selected for PECC Channel 7\par 
+\par 
+\tab enable external 2 interrupt\par 
+\tab external 2 interrupt priority level(ILVL) = 11\par 
+\tab external 2 interrupt group level (GLVL) = 3\par 
+\par 
+
+}

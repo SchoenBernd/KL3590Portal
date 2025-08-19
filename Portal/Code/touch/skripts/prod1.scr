@@ -1,0 +1,24 @@
+// Bildvorlage BV020  "\x1bRB018" aktualisiert
+ESC,RB018
+ESC,F001
+ESC,=230005URBILD
+ESC,=230017URBILD
+ESC,=230029URBILD
+ESC,F1
+ESC,=001100
+chr,$14
+ESC,RT0601002001404001
+ESC,s33
+// Piktogramm PSTOP  "053"     aktualisiert
+Pikto,053,120,132
+ESC,s11
+// Piktogramm P_TIME  "019"     aktualisiert
+Pikto,019,005,150
+// Piktogramm PTEMP  "197"     aktualisiert
+Pikto,197,290,105
+ESC,=270150
+chr,01,$19
+chr,01,$19
+txt,AC
+chr,01,$19
+chr,01,$19

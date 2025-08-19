@@ -1,0 +1,199 @@
+ 0
+ 0
+ 13
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 283
+ 7
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 0
+ 0
+ 61
+ 7
+ 0
+ 0
+ 255
+P3030.bmp
+PPROG
+ 256
+ 4
+ 1
+ 0
+ 47
+ 39
+ 0
+RT47x39.bmp
+TEINGABE
+ 256
+ 4
+ 49
+ 0
+ 47
+ 39
+ 0
+RT47x39.bmp
+TPROG
+ 256
+ 4
+ 272
+ 0
+ 47
+ 39
+ 0
+RT47x39.bmp
+TENDE
+ 256
+ 4
+ 1
+ 201
+ 63
+ 39
+ 0
+RT63x39.bmp
+TBLOCKMOVE
+ 256
+ 4
+ 257
+ 201
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENTER
+ 0
+ 0
+ 104
+ 5
+ 0
+ 0
+ 255
+P3164.bmp
+PBLOCK
+ 0
+ 0
+ 19
+ 208
+ 0
+ 0
+ 255
+P3344.bmp
+PSCHLITTEN
+ 256
+ 4
+ 65
+ 201
+ 63
+ 39
+ 0
+RT63x39.bmp
+TDEL
+ 0
+ 0
+ 84
+ 213
+ 0
+ 0
+ 255
+P3035.bmp
+PDEL
+ 0
+ 0
+ 269
+ 213
+ 0
+ 0
+ 255
+P3071.bmp
+PENTER
+ 256
+ 4
+ 159
+ 88
+ 79
+ 39
+ 0
+RT79x39.bmp
+TSCALEX
+ 256
+ 4
+ 241
+ 88
+ 79
+ 39
+ 0
+RT79x39.bmp
+TSCALEY
+ 256
+ 4
+ 159
+ 131
+ 79
+ 39
+ 0
+RT79x39.bmp
+TSPIEGELN
+ 256
+ 4
+ 241
+ 131
+ 79
+ 39
+ 0
+RT79x39.bmp
+TDREHEN
+ 0
+ 0
+ 165
+ 97
+ 0
+ 0
+ 255
+P3447.bmp
+PSCALEX
+ 0
+ 0
+ 247
+ 97
+ 0
+ 0
+ 255
+P3448.bmp
+PSCALEY
+ 0
+ 0
+ 186
+ 139
+ 0
+ 0
+ 255
+P3321.bmp
+PSPIEGELN
+ 0
+ 0
+ 247
+ 140
+ 0
+ 0
+ 255
+P3388.bmp
+PDREHEN
+***ENDE***

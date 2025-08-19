@@ -1,0 +1,19 @@
+# Bernd Schoen Erweiterungen 3590-Portal-Projekt:
+# Exe-Files
+*.exe
+*.EXE
+
+# Zip-Files
+*.zip
+*.ZIP
+
+# Visual Studio Code Verzeichnis ignorieren
+# .vscode/
+# *.code-workspace
+
+# erzeugte Compilierungsdaten ignorieren
+*.obj
+*.map
+*.$$$
+!CreateBootSD.exe
+!**/PORTAL.exe

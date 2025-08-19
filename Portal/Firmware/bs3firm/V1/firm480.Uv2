@@ -1,0 +1,133 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (Target 1), 0x0002 // Tools: '166/167'
+
+Group (Source Group 1)
+
+File 1,1,<.\MAINBS3.C><MAINBS3.C> 0x0 
+File 1,1,<.\NMBS3.C><NMBS3.C> 0x0 
+File 1,1,<.\SMBS3.C><SMBS3.C> 0x0 
+File 1,1,<.\CANUTL.C><CANUTL.C> 0x0 
+File 1,1,<.\CANBS3.C><CANBS3.C> 0x0 
+File 1,2,<.\STARTBS3.A66><STARTBS3.A66> 0x0 
+
+
+Options 1,0,0  // Target 'Target 1'
+ Device (C167CR-LM)
+ Vendor (Infineon)
+ Cpu (IRAM (0xF600 - 0xFDFF) XRAM(0xE000-0xE7FF) ICAN(0xE800-0xEFFF) CLOCK(20000000) MOD167)
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ Rgf ()
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg ()
+ TgStat=16
+ OutDir (.\)
+ OutName (bs3)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=0
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <h86tobin.exe bs3.h86>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ SVCSID <>
+ Model=1
+ RTOS=0
+ nHold=6
+ iHold=65535
+ sHold=65535
+ bHold=65535
+ MOD167=1
+ MODV2=0
+ UseOnChipRom=0
+ UseOnchipXCAN=1
+ UseOnchipXRAM2=0
+ NearRam=0
+ NearRom=0
+ ExtMem 0 0,0,0
+ ExtMem 1 0,0,0
+ ExtMem 2 0,0,0
+ ExtMem 3 0,0,0
+ ExtMem 4 0,0,0
+ ExtMem 5 0,0,0
+ Optimize=6
+ SpeedSize=1
+ RegColor=1
+ Static=0
+ WarningLev=2
+ Alias=1
+ Order=0
+ UnsignedChar=0
+ NoDppSave=0
+ Float64=0
+ SaveUsr=0
+ Reorder=0
+ cMisc (MOD167)
+ Define (FIRM256)
+ Undefine ()
+ INCC6 ()
+ EC166 { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ECMISC ()
+ ECDEFINE ()
+ ECUNDEF ()
+ ECINC ()
+ MPL=1
+ CASE=0
+ aMisc (MOD167 )
+ aSet ()
+ aReset ()
+ INCA6 ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ useLinkFile=0
+ LnkFile ()
+ LinkOnly=0
+ UseTargSet=0
+ DppUse=0
+ nDataSel=2
+ nConstSel=1
+ NearDataStr ()
+ NearConstStr ()
+ CinitTab ()
+ IntVectAddr (0100000H)
+ lWarnLev=2
+ lDisWarn ()
+ lAssign ()
+ lRegbank ()
+ lReserve ()
+ lMisc (RESERVE (0-0xDFFF, 0xE800-0xF5FF, 0xFE00-0xFFFF))
+ lClasses (NCONST (0x100200 - 0x103FFF),NCODE (0x100200 - 0x103FFF),NDATA (0xE000 - 0xE7FF),NDATA0 (0xE000 - 0xE7FF),SDATA (0xF600 - 0xFFFF),SDATA0 (0xF600 - 0xFFFF),ICODE (0x100200 - 0x103FFF))
+ lSect (?C_INITSEC (0x100200),  ?C_CLRMEMSEC)
+  OPTDL (S166.DLL)()(D167.DLL)(-p167CR)(S166.DLL)()(T167.DLL)(-p167CR)
+  OPTDBG 509,-1,()()()()()()()()()() (MONITOR\MON166.DLL)()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+

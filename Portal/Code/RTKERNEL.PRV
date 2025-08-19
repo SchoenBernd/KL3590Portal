@@ -1,0 +1,169 @@
+/**************************************************************************/
+/*                                                                        */
+/*  Module:  RTKernel (private data)               Copyright (c) 1989,94  */
+/*  Version: 4.5                                 On Time Informatik GmbH  */
+/*                                                                        */
+/*                                                                        */
+/*                                      On Time        /úúúúúúúúúúú/ÄÄÄÄÄ */
+/*                                    Informatik GmbH /úúúúúúúúúúú/       */
+/* ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ/úúúúúúúúúúú/        */
+/*                                  Echtzeit- und Systemsoftware          */
+/*                                                                        */
+/**************************************************************************/
+
+#ifdef __TURBOC__
+   #pragma option -a-
+#endif
+
+struct  TCBType;
+
+#if RTK_LOCAL_TCB
+   typedef struct TCBType near *TCBPtrType;
+   #define NoTask 0
+#else
+   typedef struct TCBType *TCBPtrType;
+   #define NoTask NULL
+#endif
+
+typedef struct {
+   FarPointer     UserHandler;
+   FarPointer     UserSPSS;
+   FarPointer     IntSPSS;
+   unsigned short Fill;    /* align */
+   unsigned int   Doubles;
+   unsigned long  Calls;
+   char far *     StackBase;
+   unsigned int   StackLength;
+   unsigned int   StackInUse;
+} IRQCB;
+
+typedef TCBPtrType     QueueType;
+
+struct SemaRec;
+
+typedef struct SemaRec *SemaRef;
+
+struct SemaRec {
+   QueueType    Queue;
+   unsigned int Count;
+   unsigned int SemaId;
+   SemaRef      SemaNext,
+                ResNext;
+   TCBPtrType   Owner;
+   char        *Name;
+   SemaType     Kind;
+};
+
+typedef  enum { Continue, ShouldSuspend, ShouldTerminate } StopLevelType;
+
+#if RTK_DOS
+
+typedef void far * DOSVectorsType[3];
+
+typedef struct {
+   DOSVectorsType      ProcessVectors;
+   void far            *DTA;
+   void far            *ParentStack;
+   unsigned short      PSP;
+   unsigned short      Fill; /* alignment */
+} DOSProtRec;
+
+#endif
+
+typedef struct
+{
+   union {
+      void      * ptr;
+      void far  * fptr;
+      void near * nptr;
+   } p;                     /* user's pointer, always defined */
+   unsigned BlockSize;      /* internal usage only            */
+   unsigned UsageSize;      /* dito                           */
+   void * M;
+   unsigned short Segment;  /* always defined                 */
+   unsigned short Fill;     /* 32 bit alignment               */
+   enum     { MemDefault, MemNear, MemFar, MemSegment,
+              MemBCNearStack, MemSpecial } MemType;
+} MemBlock;
+
+#ifdef __FLAT__
+   #pragma option -a-
+#endif
+typedef union {
+   unsigned short W[3];
+   unsigned char  B[6];
+   unsigned long  C;
+   struct {
+      unsigned short Incs;
+      unsigned long  Ticks;
+      unsigned short Fill;   /* 32 bit alignment */
+   } t;
+} FineTime;
+
+#ifdef __FLAT__
+   #pragma option -a.
+#endif
+
+struct TCBType {
+   char                *Name;
+   TCBPtrType          PrimNext,
+                       TimeNext,
+                       SysNext;
+   QueueType           *PrimQ;
+   unsigned int        far *TopOfStack;
+   MemBlock            Stack;
+   MemBlock            MathData;
+   unsigned int        SPMin, SPMax;
+   void                (*Routine)(void);
+   TaskState           State;
+   TimerTicks          TimeLimit;
+   SemaRef             Resources;
+   QueueType           MSGQ;
+   unsigned int        MSGLen;
+   void                *MSGAddr;
+   TCBPtrType          ReceiverTask;
+   unsigned int        BasePrio,
+                       Prio;
+   unsigned int        TCBId;
+   struct {
+      unsigned int     BasePointer;
+      int              KernelLevel;
+   } Pos;
+   struct {
+      unsigned long    Switches;
+      FineTime         CPUTime;
+   } Stat;
+   void                *UserData[MAX_USER_DATA_ENTRIES];
+#ifndef __FLAT__
+   struct {
+      unsigned long    EAX, EBX, ECX, EDX, ESI, EDI;
+   } Saved32BitRegs;
+#endif
+#ifdef _MSC_VER
+   unsigned short      EmuDataSeg;
+   unsigned short      Fill; /* alignment */
+#endif
+#if RTK_DOS
+   DOSProtRec          DOS;
+#endif
+   int                 MSGTransferred;
+   StopLevelType       StopFlag;
+   int                 UsesMath;
+   void                *XData;
+};
+
+typedef TCBPtrType TaskRef;
+
+struct MCBRec;
+typedef struct MCBRec *MCBRef;
+typedef struct MCBRec {
+   QueueType    WriteQueue, ReadQueue;
+   MCBRef       MBNext;
+   unsigned int Count, Head, Tail, DataSize, Slots, MCBId;
+   char         *Buffer;
+   char         *Name;
+} MCBType;
+
+#ifdef __TURBOC__
+   #pragma option -a.
+#endif

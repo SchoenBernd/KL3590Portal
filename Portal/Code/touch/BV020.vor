@@ -1,0 +1,136 @@
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 256
+ 4
+ 1
+ 1
+ 96
+ 39
+ 0
+RT96x39.bmp
+TPNR
+ 256
+ 4
+ 280
+ 1
+ 39
+ 39
+ 0
+RT39x39.bmp
+TEINGABE
+ 0
+ 0
+ 284
+ 8
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 306
+ 29
+ 0
+ 0
+ 255
+P3092.bmp
+PMENUEKLEIN
+ 256
+ 4
+ 99
+ 1
+ 63
+ 39
+ 0
+RT63x39.bmp
+TSTI
+ 0
+ 0
+ 106
+ 9
+ 0
+ 0
+ 255
+P3216.bmp
+PSTI
+ 256
+ 4
+ 164
+ 1
+ 63
+ 39
+ 0
+RT63x39.bmp
+TGSWMAX
+ 0
+ 0
+ 166
+ 7
+ 0
+ 0
+ 255
+P3400.bmp
+PGSWMAX
+ 256
+ 4
+ 280
+ 100
+ 39
+ 39
+ 0
+RT39x39.bmp
+TSCHABLONE
+ 256
+ 4
+ 280
+ 142
+ 39
+ 39
+ 0
+RT39x39.bmp
+TFAEDEL
+ 256
+ 4
+ 238
+ 100
+ 39
+ 39
+ 0
+RT39x39.bmp
+TFUSS
+ 0
+ 0
+ 288
+ 108
+ 0
+ 0
+ 255
+P3392.bmp
+PSCHABLONE
+ 0
+ 0
+ 249
+ 112
+ 0
+ 0
+ 255
+P3342.bmp
+PFUSS
+ 0
+ 0
+ 289
+ 153
+ 0
+ 0
+ 255
+P3343.bmp
+PFAEDEL
+***ENDE***

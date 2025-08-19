@@ -1,0 +1,7 @@
+device=himem.sys
+device = emm386.exe X=A000-BFFF X=D000-FFFF FRAME=C000
+FILES=5
+BUFFERS=10
+DOS=HIGH
+
+

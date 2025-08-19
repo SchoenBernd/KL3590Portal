@@ -1,0 +1,26 @@
+// Bildvorlage BV020  "\x1bRB020" aktualisiert
+ESC,RB020
+ESC,F001
+ESC,=230005URBILD
+ESC,=230017URBILD
+ESC,=230029URBILD
+ESC,F1
+ESC,=001100
+chr,$14
+ESC,RT0011000960394001
+
+
+ESC,=270150
+chr,01,$19
+chr,01,$19
+txt,AC
+chr,01,$19
+chr,01,$19
+// Piktogramm PHFLEVEL  "060"    
+Pikto,060,001,150
+ESC,=025155
+txt,2,0mm
+// Piktogramm PFUSS  "059"    
+Pikto,059,090,155
+ESC,=115155
+txt,2,0mm

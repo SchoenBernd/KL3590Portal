@@ -1,0 +1,1 @@
+tdremote -rs4 -rp1

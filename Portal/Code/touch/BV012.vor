@@ -1,0 +1,172 @@
+ 0
+ 0
+ 22
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 276
+ 6
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 4
+ 257
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 256
+ 4
+ 1
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TSTART
+ 256
+ 4
+ 1
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TEINGABE
+ 0
+ 0
+ 25
+ 205
+ 0
+ 0
+ 255
+P3062.bmp
+PSTART
+ 256
+ 4
+ 81
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TSTOP
+ 0
+ 0
+ 106
+ 205
+ 0
+ 0
+ 255
+P3063.bmp
+PSTOP
+ 256
+ 4
+ 1
+ 74
+ 119
+ 79
+ 0
+RT119x79.bmp
+TNMGSW
+ 256
+ 4
+ 121
+ 74
+ 39
+ 39
+ 0
+RT39x39.bmp
+TGSW_UP
+ 256
+ 4
+ 121
+ 114
+ 39
+ 39
+ 0
+RT39x39.bmp
+TGSW_DOWN
+ 0
+ 0
+ 132
+ 84
+ 0
+ 0
+ 255
+P3032.bmp
+PCURSORAUF
+ 0
+ 0
+ 132
+ 125
+ 0
+ 0
+ 255
+P3033.bmp
+PCURSORAB
+ 0
+ 0
+ 75
+ 8
+ 0
+ 0
+ 255
+P3255.bmp
+PNAEHMOTOR
+ 256
+ 4
+ 241
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TPOS
+ 0
+ 0
+ 267
+ 210
+ 0
+ 0
+ 255
+P3246.bmp
+PPOS
+ 256
+ 4
+ 161
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TFADENSCHNEIDEN
+ 0
+ 0
+ 190
+ 205
+ 0
+ 0
+ 255
+P3168.bmp
+PFADENSCHNEIDEN
+***ENDE***

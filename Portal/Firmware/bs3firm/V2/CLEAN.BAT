@@ -1,0 +1,22 @@
+del *.bak
+del *.tmp
+del *.err
+del *.obj
+del *.lst
+del *.map
+del *.~c
+del *.~cec
+del *.~h
+del *.$$$
+del *.__i
+del *.orc
+del *.hex
+del *.htx
+del *.htc
+del *.sym
+del *.
+del *.lnp
+del *.m66
+del *.plg
+del *.vtg
+

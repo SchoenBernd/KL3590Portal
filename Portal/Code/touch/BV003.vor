@@ -1,0 +1,289 @@
+ 0
+ 0
+ 22
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 276
+ 6
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 4
+ 257
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 0
+ 0
+ 36
+ 105
+ 0
+ 0
+ 255
+P3005.bmp
+PINFO
+ 256
+ 4
+ 1
+ 45
+ 79
+ 47
+ 0
+RT79x47.bmp
+TPROG
+ 256
+ 4
+ 81
+ 45
+ 79
+ 47
+ 0
+RT79x47.bmp
+TPROGVERW
+ 256
+ 4
+ 161
+ 45
+ 79
+ 47
+ 0
+RT79x47.bmp
+TPAR
+ 256
+ 4
+ 161
+ 93
+ 79
+ 47
+ 0
+RT79x47.bmp
+TFKTSPERREN
+ 0
+ 0
+ 278
+ 203
+ 0
+ 0
+ 255
+P3007.bmp
+PSERVICE
+ 256
+ 4
+ 1
+ 93
+ 79
+ 47
+ 0
+RT79x47.bmp
+TINFO
+ 256
+ 4
+ 81
+ 93
+ 79
+ 47
+ 0
+RT79x47.bmp
+TLAENDEREINST
+ 0
+ 0
+ 31
+ 55
+ 0
+ 0
+ 255
+P3030.bmp
+PPROG
+ 0
+ 0
+ 188
+ 61
+ 0
+ 0
+ 255
+P3247.bmp
+PPAR
+ 0
+ 0
+ 107
+ 102
+ 0
+ 0
+ 255
+P3017.bmp
+PLAENDEREINST
+ 0
+ 0
+ 187
+ 104
+ 0
+ 0
+ 255
+P3018.bmp
+PFKTSPERREN
+ 0
+ 0
+ 211
+ 205
+ 0
+ 0
+ 255
+P3255.bmp
+PNAEHMOTOR
+ 0
+ 0
+ 83
+ 203
+ 0
+ 0
+ 255
+P3344.bmp
+PSCHLITTEN
+ 0
+ 0
+ 67
+ 81
+ 0
+ 0
+ 255
+P3092.bmp
+PMENUEKLEIN
+ 0
+ 0
+ 147
+ 81
+ 0
+ 0
+ 255
+P3092.bmp
+PMENUEKLEIN##560
+ 0
+ 0
+ 307
+ 229
+ 0
+ 0
+ 255
+P3092.bmp
+PMENUEKLEIN##607
+ 0
+ 0
+ 139
+ 209
+ 0
+ 0
+ 255
+P3127.bmp
+P_T
+ 0
+ 0
+ 151
+ 209
+ 0
+ 0
+ 255
+P3112.bmp
+P_E
+ 0
+ 0
+ 163
+ 209
+ 0
+ 0
+ 255
+P3126.bmp
+P_S
+ 256
+ 4
+ 257
+ 193
+ 63
+ 47
+ 0
+RT63x47.bmp
+TSERVICE
+ 256
+ 4
+ 193
+ 193
+ 63
+ 47
+ 0
+RT63x47.bmp
+TNAEHMOTOR
+ 256
+ 4
+ 129
+ 193
+ 63
+ 47
+ 0
+RT63x47.bmp
+TREF
+ 256
+ 4
+ 65
+ 193
+ 63
+ 47
+ 0
+RT63x47.bmp
+TSCHLITTEN
+ 256
+ 4
+ 1
+ 193
+ 63
+ 47
+ 0
+RT63x47.bmp
+TRFID
+ 0
+ 0
+ 19
+ 203
+ 0
+ 0
+ 255
+P3501.bmp
+PRFID
+ 0
+ 0
+ 174
+ 209
+ 0
+ 0
+ 255
+P3127.bmp
+P_T##896
+ 0
+ 0
+ 100
+ 55
+ 0
+ 0
+ 255
+P3494.bmp
+PSDCARD
+***ENDE***

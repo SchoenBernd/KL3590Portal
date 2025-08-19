@@ -1,0 +1,209 @@
+
+c:\work\PFAFF\portal\Code>CLS
+      ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+      ³Erzeugen der Portal-Software fr die BS3               ³
+      ³portal.bat erzeugt portal.exe                          ³
+      ³ein 2. Flag definiert die N„hfeldgr”áe:                ³
+      ³120x70, 120X170, 100x50,                               ³
+      ³Ist kein 2. Flag definiert wir die Software fuer 120x70³
+      ³erzeugt.                                               ³
+      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+ECHO ist ausgeschaltet (OFF).
+      ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+      ³         Erzeugen der Portal-Software fuer die BS3               ³
+      ³         portal.bat erzeugt portal.exe                           ³
+      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+N„hfeld 1200 x 700
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 506720 bytes
+
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 hpportal.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+hpportal.c:
+
+        Available memory 3566176
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 portvers.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+portvers.c:
+
+        Available memory 4092628
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 ablport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+ablport.c:
+
+        Available memory 3396700
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 bootport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+bootport.c:
+
+        Available memory 3570100
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 eingport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+eingport.c:
+
+        Available memory 3331748
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 eingup.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+eingup.c:
+
+        Available memory 3467892
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 keybport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+keybport.c:
+
+        Available memory 3572132
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 koorport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+koorport.c:
+
+        Available memory 3461388
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 ioportal.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+ioportal.c:
+
+        Available memory 3545288
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 screen.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+screen.c:
+
+        Available memory 3582208
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 texte.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+texte.c:
+
+        Available memory 3581052
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 treiber.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+treiber.c:
+
+        Available memory 3608224
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 utlport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+utlport.c:
+
+        Available memory 3601076
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 naeport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+naeport.c:
+
+        Available memory 3172356
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 zeitport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+zeitport.c:
+
+        Available memory 3604660
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 datinfpo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+datinfpo.c:
+
+        Available memory 3570452
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 cmdport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+cmdport.c:
+
+        Available memory 3341620
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 nminf.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+nminf.c:
+
+        Available memory 3559260
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 sminf.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+sminf.c:
+
+        Available memory 3566344
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 parport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+parport.c:
+
+        Available memory 3507952
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 progport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+progport.c:
+
+        Available memory 3256252
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 nmtrbpo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+nmtrbpo.c:
+
+        Available memory 3562588
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 naeup.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+naeup.c:
+
+        Available memory 3385348
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 nmintpo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+nmintpo.c:
+
+        Available memory 3479624
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 naetabpo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+naetabpo.c:
+
+        Available memory 3609168
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 proguppo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+proguppo.c:
+
+        Available memory 3452340
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 veruppo.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+veruppo.c:
+
+        Available memory 3587492
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 servport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+servport.c:
+Warning servport.c 1181: 'tempkoord' is assigned a value that is never used in function KlasseService::hfusseinstellen()
+
+        Available memory 3513764
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 konvport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+konvport.c:
+
+        Available memory 3436564
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 sdups.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+sdups.c:
+Warning sdups.c 885: 'fehler' is assigned a value that is never used in function KlasseSdUp::SdFileWrite(char *,unsigned int)
+
+        Available memory 3549524
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 ringbuf.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+ringbuf.c:
+
+        Available memory 3605340
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 schabl.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+schabl.c:
+
+        Available memory 3599192
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 rfidport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+rfidport.c:
+
+        Available memory 3447900
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 bcportal.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+bcportal.c:
+
+        Available memory 3589552
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 hfportal.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+hfportal.c:
+
+        Available memory 3581024
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 -v- zeitport.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+zeitport.c:
+
+        Available memory 3604660
+        bcc -mh -3 -a -O1 -Z -k- -c -P -g20 -j20 -f287 -v- -DNF120x70 -v- portvers.c
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+portvers.c:
+
+        Available memory 4088532
+        tlink /s/c/P-/LC:\BC\LIB @MAKE0000.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International

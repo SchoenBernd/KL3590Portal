@@ -1,0 +1,451 @@
+"DeployProject"
+{
+"VSVersion" = "3:701"
+"ProjectType" = "8:{AB322303-2255-48EF-A496-5904EB18DA55}"
+"IsWebType" = "8:FALSE"
+"ProjectName" = "8:Bdf-P1PortalCab"
+"LanguageId" = "3:1031"
+"CodePage" = "3:1252"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+    "Hierarchy"
+    {
+        "Entry"
+        {
+        "MsmKey" = "8:_1944178A4BA84C05BF5561844FA4DF16"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4147A9B9C2AE4FD09B6BD4BCEFB1089C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_42C051FD465748F8B5317FF3DB59AF46"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5A9AFBFB7F674B1EB8709B7016833CB4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6F236A458B654F449132592E1D05D0F1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_721C0DD9912B460BBB81651D82AD0975"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_79AB2DC1D3F147B881AAFB7373786672"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B5170D7CD32A4AB6ACBD29AF170A3548"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+    }
+    "Configurations"
+    {
+        "Debug"
+        {
+        "DisplayName" = "8:Debug"
+        "IsDebugOnly" = "11:TRUE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:Debug\\Bdf-P1PortalCab.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:"
+        "TimeStampServer" = "8:"
+        }
+        "Release"
+        {
+        "DisplayName" = "8:Release"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:TRUE"
+        "OutputFilename" = "8:Release\\Bdf-P1.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:"
+        "TimeStampServer" = "8:"
+        }
+    }
+    "Deployable"
+    {
+        "File"
+        {
+            "{BA458234-9B71-4F46-8107-E91156377184}:_1944178A4BA84C05BF5561844FA4DF16"
+            {
+            "SourcePath" = "8:..\\..\\Netzwerk.ini"
+            "TargetName" = "8:Netzwerk.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_4147A9B9C2AE4FD09B6BD4BCEFB1089C"
+            {
+            "SourcePath" = "8:..\\..\\..\\BDF-P1\\index.htm"
+            "TargetName" = "8:index.htm"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_42C051FD465748F8B5317FF3DB59AF46"
+            {
+            "SourcePath" = "8:..\\..\\..\\BDF-P1\\BDF14x8.ttf"
+            "TargetName" = "8:BDF14x8.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_5A9AFBFB7F674B1EB8709B7016833CB4"
+            {
+            "SourcePath" = "8:..\\..\\..\\BDF-P1\\BDF-P1\\ARM_931XA_FinalBeta_MultiDisplay (ARMV4I)\\Release\\BDF-P1.exe"
+            "TargetName" = "8:BDF-P1.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_1CD34DCDC6EE406894529392505AC12D"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_6F236A458B654F449132592E1D05D0F1"
+            {
+            "SourcePath" = "8:..\\..\\BdfP1.ini"
+            "TargetName" = "8:BdfP1.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_721C0DD9912B460BBB81651D82AD0975"
+            {
+            "SourcePath" = "8:..\\..\\CeVncSvr.exe"
+            "TargetName" = "8:CeVncSvr.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_1CD34DCDC6EE406894529392505AC12D"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_79AB2DC1D3F147B881AAFB7373786672"
+            {
+            "SourcePath" = "8:..\\..\\..\\BDF-P1\\BDF8x8.ttf"
+            "TargetName" = "8:BDF8x8.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_B5170D7CD32A4AB6ACBD29AF170A3548"
+            {
+            "SourcePath" = "8:..\\..\\..\\BDF-P1\\InitBild.bmp"
+            "TargetName" = "8:InitBild.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+        }
+        "Folder"
+        {
+            "{27CA7284-31D3-408F-812A-1EF9ACCDB822}:_1CD34DCDC6EE406894529392505AC12D"
+            {
+            "Name" = "8:Nor Flash"
+            "Condition" = "8:"
+            "Property" = "8:CUSTOMFOLDER1"
+                "Folders"
+                {
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_1723389577A942958A8FC715D0D1E1B0"
+                    {
+                    "Name" = "8:Nor Flash"
+                    "Condition" = "8:"
+                    "Property" = "8:_DA93D1CA3EB24C20B3638FC784D1792F"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
+            "{D5B00AC1-E6C3-4CC5-90FF-8E0F53D9E5E0}:_59125F0405D049BB8555C9813ED42F5C"
+            {
+            "DefaultLocation" = "8:%InstallDir%"
+            "Name" = "8:#1920"
+            "Condition" = "8:"
+            "Property" = "8:%InstallDir%"
+                "Folders"
+                {
+                }
+            }
+        }
+        "Product"
+        {
+        "Name" = "8:Microsoft Visual Studio"
+        "ProductName" = "8:Bdf-P1"
+        "Manufacturer" = "8:Pfaff Industrial"
+        "OSVersionMin" = "8:4.0"
+        "OSVersionMax" = "8:6.99"
+        "NoUninstall" = "11:FALSE"
+        "Compress" = "11:FALSE"
+        "CESetupDLL" = "8:"
+        }
+        "ProjectOutput"
+        {
+        }
+        "Registry"
+        {
+            "HKLM"
+            {
+                "Keys"
+                {
+                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_CD16C5606F2E4B3FA72EA7841DC4CF1E"
+                    {
+                    "Name" = "8:Init"
+                    "Condition" = "8:"
+                        "Keys"
+                        {
+                        }
+                        "Values"
+                        {
+                            "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_6C6943DC32ED4E7CB158731A7F50B349"
+                            {
+                            "Name" = "8:Launch90"
+                            "Condition" = "8:"
+                            "ValueTypes" = "3:2"
+                            "Value" = "8:\\Nor Flash\\Bdf-P1.exe"
+                            }
+                            "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_98705A63C12341AEB1EA8AE1AD4B7B43"
+                            {
+                            "Name" = "8:Depend90"
+                            "Condition" = "8:"
+                            "ValueTypes" = "3:4"
+                            "Value" = "8:0A0014001E003200370038003900"
+                            }
+                        }
+                    }
+                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_D45710F50688414F8CB36C95646F817E"
+                    {
+                    "Name" = "8:Comm"
+                    "Condition" = "8:"
+                        "Keys"
+                        {
+                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_570F7D2141264BE1B0D3EF1A29F41B28"
+                            {
+                            "Name" = "8:HTTPD"
+                            "Condition" = "8:"
+                                "Keys"
+                                {
+                                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_8F58A606BA68451AAB10F30ED06E8E0E"
+                                    {
+                                    "Name" = "8:VROOTS"
+                                    "Condition" = "8:"
+                                        "Keys"
+                                        {
+                                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_83F54AC5AAF146CA8D387952EFC11342"
+                                            {
+                                            "Name" = "8:/bde"
+                                            "Condition" = "8:"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_45AE4033B7BC4F74A39059C47A5B5393"
+                                                    {
+                                                    "Name" = "8:a"
+                                                    "Condition" = "8:"
+                                                    "ValueTypes" = "3:3"
+                                                    "Value" = "3:0"
+                                                    }
+                                                    "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_90D327C7025C4E00B825E53B024B92C5"
+                                                    {
+                                                    "Name" = "8:Basic"
+                                                    "Condition" = "8:"
+                                                    "ValueTypes" = "3:3"
+                                                    "Value" = "3:1"
+                                                    }
+                                                    "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_F9E56F19715541E296D4F76C76FCCC79"
+                                                    {
+                                                    "Name" = "8:Default"
+                                                    "Condition" = "8:"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\\My Documents\\"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                }
+            }
+            "HKCU"
+            {
+                "Keys"
+                {
+                    "{B1EBC968-6B66-4532-A885-748B79AF4477}:_AF05593410A94CB49AC0D104E21F4F8B"
+                    {
+                    "Name" = "8:SOFTWARE"
+                    "Condition" = "8:"
+                        "Keys"
+                        {
+                            "{B1EBC968-6B66-4532-A885-748B79AF4477}:_069F018680604C4CBCAA681860390372"
+                            {
+                            "Name" = "8:PFAFF"
+                            "Condition" = "8:"
+                                "Keys"
+                                {
+                                }
+                                "Values"
+                                {
+                                    "{C3684F64-58E2-4092-8E3C-D7483080DE5A}:_C7F88E81963D48FE891EB4ED279659F1"
+                                    {
+                                    "Name" = "8:BDF-P1"
+                                    "Condition" = "8:"
+                                    "ValueTypes" = "3:2"
+                                    "Value" = "8:0"
+                                    }
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                }
+            }
+            "HKCR"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKPU"
+            {
+                "Keys"
+                {
+                }
+            }
+        }
+        "Shortcut"
+        {
+            "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_7E1CA1F796B241D9BE9C0D7895C162DA"
+            {
+            "Name" = "8:BDF-P1"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "Target" = "8:_5A9AFBFB7F674B1EB8709B7016833CB4"
+            "Folder" = "8:_1723389577A942958A8FC715D0D1E1B0"
+            "WorkingFolder" = "8:_1CD34DCDC6EE406894529392505AC12D"
+            }
+        }
+    }
+}

@@ -1,0 +1,325 @@
+ 0
+ 0
+ 22
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 276
+ 6
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 4
+ 257
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 256
+ 4
+ 1
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TEINGABE
+ 256
+ 4
+ 1
+ 201
+ 79
+ 39
+ 0
+RT79x39.bmp
+TCOPY
+ 256
+ 1
+ 1
+ 45
+ 159
+ 142
+ 255
+R159x142.bmp
+Dummy1
+ 256
+ 1
+ 161
+ 45
+ 159
+ 142
+ 255
+R159x142.bmp
+Dummy2
+ 256
+ 1
+ 1
+ 186
+ 159
+ 13
+ 255
+R159x13.bmp
+Dummy3
+ 256
+ 1
+ 161
+ 186
+ 159
+ 13
+ 255
+R159x13.bmp
+Dummy4
+ 256
+ 1
+ 1
+ 45
+ 159
+ 37
+ 0
+R159x37.bmp
+TSPEICHER
+ 256
+ 1
+ 161
+ 45
+ 159
+ 37
+ 0
+R159x37.bmp
+TDISKETTE
+ 0
+ 0
+ 12
+ 50
+ 0
+ 0
+ 255
+P3101.bmp
+PSPEICHERKLEIN
+ 256
+ 4
+ 126
+ 85
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSCRUP
+ 0
+ 0
+ 133
+ 92
+ 0
+ 0
+ 255
+P3032.bmp
+PCURSORAUF
+ 0
+ 0
+ 293
+ 92
+ 0
+ 0
+ 255
+P3032.bmp
+PCURSORAUF##785
+ 256
+ 4
+ 126
+ 119
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSTERN
+ 0
+ 0
+ 131
+ 125
+ 0
+ 0
+ 255
+P3106.bmp
+PSTERN
+ 0
+ 0
+ 291
+ 125
+ 0
+ 0
+ 255
+P3106.bmp
+PSTERN##690
+ 256
+ 4
+ 126
+ 153
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSCRDOWN
+ 0
+ 0
+ 133
+ 159
+ 0
+ 0
+ 255
+P3033.bmp
+PCURSORAB
+ 0
+ 0
+ 293
+ 159
+ 0
+ 0
+ 255
+P3033.bmp
+PCURSORAB##703
+ 256
+ 4
+ 286
+ 85
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSCRUP1
+ 256
+ 4
+ 286
+ 153
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSCRDOWN1
+ 256
+ 4
+ 286
+ 119
+ 31
+ 31
+ 0
+RT31x31.bmp
+TSTERN1
+ 0
+ 0
+ 22
+ 212
+ 0
+ 0
+ 255
+P3103.bmp
+PCOPY
+ 256
+ 4
+ 81
+ 201
+ 79
+ 39
+ 0
+RT79x39.bmp
+TDEL
+ 0
+ 0
+ 97
+ 212
+ 0
+ 0
+ 255
+P3104.bmp
+PDELETE
+ 256
+ 4
+ 161
+ 201
+ 79
+ 39
+ 0
+RT79x39.bmp
+TMDAT
+ 0
+ 0
+ 181
+ 204
+ 0
+ 0
+ 255
+P3042.bmp
+PMDATSCHREIBEN
+ 256
+ 4
+ 241
+ 201
+ 79
+ 39
+ 0
+RT79x39.bmp
+TFORMAT
+ 0
+ 0
+ 255
+ 212
+ 0
+ 0
+ 255
+P3105.bmp
+PFORMAT
+ 0
+ 0
+ 68
+ 8
+ 0
+ 0
+ 255
+P3494.bmp
+PSDCARD
+ 256
+ 4
+ 139
+ 0
+ 47
+ 39
+ 0
+RT47x39.bmp
+TNEULESEN
+ 256
+ 4
+ 188
+ 0
+ 47
+ 39
+ 0
+RT47x39.bmp
+TLWWECHSEL
+ 0
+ 0
+ 150
+ 9
+ 0
+ 0
+ 255
+P3389.bmp
+PNEULESEN
+***ENDE***

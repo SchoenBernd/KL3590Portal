@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "Bdf-P1PortalCab", "Bdf-P1PortalCab\Bdf-P1PortalCab.vddproj", "{49BCE5F8-8C96-4656-87ED-03A24D12B8E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49BCE5F8-8C96-4656-87ED-03A24D12B8E4}.Debug|Default.ActiveCfg = Debug
+		{49BCE5F8-8C96-4656-87ED-03A24D12B8E4}.Debug|Default.Build.0 = Debug
+		{49BCE5F8-8C96-4656-87ED-03A24D12B8E4}.Release|Default.ActiveCfg = Release
+		{49BCE5F8-8C96-4656-87ED-03A24D12B8E4}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

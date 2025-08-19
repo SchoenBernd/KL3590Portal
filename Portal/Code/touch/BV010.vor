@@ -1,0 +1,127 @@
+ 0
+ 0
+ 22
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 276
+ 6
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 4
+ 257
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 256
+ 4
+ 1
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TEINGABE
+ 0
+ 0
+ 151
+ 70
+ 0
+ 0
+ 255
+P3032.bmp
+PCURSORAUF
+ 0
+ 0
+ 151
+ 202
+ 0
+ 0
+ 255
+P3033.bmp
+PCURSORAB
+ 0
+ 0
+ 75
+ 8
+ 0
+ 0
+ 255
+P3344.bmp
+PSCHLITTEN
+ 256
+ 4
+ 116
+ 48
+ 88
+ 63
+ 0
+R88x63.bmp
+TSCHLITTENVOR
+ 256
+ 4
+ 217
+ 113
+ 88
+ 63
+ 0
+R88x63.bmp
+TSCHLITTENRECHTS
+ 256
+ 4
+ 116
+ 177
+ 88
+ 63
+ 0
+R88x63.bmp
+TSCHLITTENZURUECK
+ 256
+ 4
+ 15
+ 113
+ 88
+ 63
+ 0
+R88x63.bmp
+TSCHLITTENLINKS
+ 0
+ 0
+ 50
+ 136
+ 0
+ 0
+ 255
+P3044.bmp
+PCURSORLINKS
+ 0
+ 0
+ 253
+ 136
+ 0
+ 0
+ 255
+P3045.bmp
+PCURSORRECHTS
+***ENDE***

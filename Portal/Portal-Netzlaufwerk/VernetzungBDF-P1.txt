@@ -1,0 +1,44 @@
+Vernetzung mit BDF-P1
+
+Die BDF-P1 werden über DHCP mit dem Netzwerk verbunden.
+Die Datei NoDhcp.ini darf im Pfaff Netz nicht benutzt werden.
+Die Namensauflösung muss beim Verbindungsaufbau mit WINS erfolgen!
+Achtung: Viele neue Netzwerke benutzen den "WINS name server" nicht mehr.
+	 Der muss dann von der IT bereitgestellt werden.
+
+Die Datei Netzwerk.ini muss fogenden Inhalt haben:
+
+pfaff\bdfp1
+pfaff1
+Public
+\\filesrv01\public
+\Maschine
+// Row 1: username of the device in the network
+// Row 2: password to be used for the network
+// Row 3: local network name (on the Bdf-P1)
+// Row 4: network path in the network (for the local name)
+// Row 5: Pfaff machines root directory
+//
+// With the following commands a network test in command shell 
+// is possible without the BDFP1.exe
+// ping xxx.xxx.xxx.xxx
+// net use Public \\filesrv01\public  /user:pfaff\bdfp1 /password:pfaff1
+// net use Public /d
+
+Die im Pfaff-Netzwerk nicht zu verwendende Datei NoDhcp.ini wird benutzt
+wenn im Netzwerk zwingend mit festen IP-Adressen gearbeitet wird.
+
+Die Datei NoDhcp muss folgenden Inhalt haben:
+
+192.168.10.1
+10.19.8.10
+pfaff
+192.168.10.129
+255.255.254.0
+192.168.10.5
+// Row 1: IP address of the default gateway
+// Row 2: IP address of the DNS name server
+// Row 3: the domain name that is used by the network to which the device is connected
+// Row 4: IP address of the device (Bdf-P1)
+// Row 5: the subnet masks to be used with the IP interfaces bound to the adapter
+// Row 6: IP address of the WINS name server

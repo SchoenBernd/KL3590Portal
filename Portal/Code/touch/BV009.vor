@@ -1,0 +1,253 @@
+ 0
+ 0
+ 22
+ 7
+ 0
+ 0
+ 255
+P3031.bmp
+PEINGABE
+ 0
+ 0
+ 276
+ 6
+ 0
+ 0
+ 255
+P3009.BMP
+PENDE
+ 256
+ 4
+ 257
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TENDE
+ 256
+ 1
+ 0
+ 41
+ 320
+ 2
+ 255
+StatusLinie.bmp
+StatusLinie
+ 256
+ 4
+ 1
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TKALTSTART
+ 256
+ 4
+ 161
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+THFNULLP
+ 256
+ 4
+ 1
+ 0
+ 63
+ 39
+ 0
+RT63x39.bmp
+TEINGABE
+ 0
+ 0
+ 86
+ 8
+ 0
+ 0
+ 255
+P3007.bmp
+PSERVICE
+ 256
+ 4
+ 241
+ 100
+ 39
+ 39
+ 0
+RT39x39.bmp
+TPLUS
+ 256
+ 4
+ 281
+ 100
+ 39
+ 39
+ 0
+RT39x39.bmp
+TMINUS
+ 256
+ 4
+ 241
+ 150
+ 39
+ 39
+ 0
+RT39x39.bmp
+TLEFT
+ 0
+ 0
+ 257
+ 116
+ 0
+ 0
+ 255
+P3136.bmp
+P_PLUS
+ 0
+ 0
+ 298
+ 119
+ 0
+ 0
+ 255
+P3137.bmp
+P_MINUS
+ 256
+ 4
+ 281
+ 150
+ 39
+ 39
+ 0
+RT39x39.bmp
+TRIGHT
+ 0
+ 0
+ 251
+ 161
+ 0
+ 0
+ 255
+P3044.bmp
+PCURSORLINKS
+ 0
+ 0
+ 292
+ 161
+ 0
+ 0
+ 255
+P3045.bmp
+PCURSORRECHTS
+ 0
+ 0
+ 25
+ 203
+ 0
+ 0
+ 255
+P3024.bmp
+PKALTSTART
+ 256
+ 4
+ 6
+ 53
+ 39
+ 39
+ 0
+RT39x39.bmp
+TCAN1
+ 256
+ 4
+ 49
+ 53
+ 39
+ 39
+ 0
+RT39x39.bmp
+TCAN2
+ 0
+ 0
+ 51
+ 66
+ 0
+ 0
+ 255
+P3359.bmp
+PCAN2
+ 0
+ 0
+ 8
+ 66
+ 0
+ 0
+ 255
+P3358.bmp
+PCAN1
+ 256
+ 4
+ 158
+ 53
+ 39
+ 39
+ 0
+RT39x39.bmp
+TSER_SONDER
+ 0
+ 0
+ 174
+ 64
+ 0
+ 0
+ 255
+P3126.bmp
+P_S
+ 256
+ 4
+ 241
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+TNULLP
+ 0
+ 0
+ 269
+ 203
+ 0
+ 0
+ 255
+P3393.bmp
+PNULLP
+ 256
+ 4
+ 81
+ 193
+ 79
+ 47
+ 0
+RT79x47.bmp
+THFUSS
+ 0
+ 0
+ 108
+ 207
+ 0
+ 0
+ 255
+P3533.bmp
+PHFAUFAB
+ 0
+ 0
+ 187
+ 207
+ 0
+ 0
+ 255
+P3535.bmp
+PHFNULLP
+***ENDE***
